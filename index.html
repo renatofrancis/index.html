@@ -24,7 +24,7 @@
     <div class="flex justify-between items-center mb-6">
         <div>
             <h1 class="text-xl font-black text-blue-400">WORKOUT PLAN RF 2026 BY SS</h1>
-            <p class="text-[10px] text-gray-400 uppercase tracking-widest">60kg / 165cm • 120g Prot</p>
+            <p class="text-[10px] text-gray-400 uppercase tracking-widest">GENERALES: 60kg / 165cm • 120g Prot</p>
         </div>
         <button id="sessionBtn" onclick="toggleSession()" class="bg-blue-600 px-4 py-2 rounded-lg font-bold text-xs uppercase">Check-in</button>
     </div>
@@ -32,29 +32,28 @@
     <div id="sessionTimer" class="text-center text-blue-300 font-mono text-2xl mb-6 bg-slate-800/50 py-2 rounded-lg hidden">00:00:00</div>
 
     <div class="flex space-x-2 overflow-x-auto mb-6 pb-2">
-        <button id="btn1" onclick="showDay(1)" class="nav-btn nav-active">DÍA 1</button>
-        <button id="btn2" onclick="showDay(2)" class="nav-btn">DÍA 2</button>
-        <button id="btn3" onclick="showDay(3)" class="nav-btn">DÍA 3</button>
-        <button id="btn4" onclick="showDay(4)" class="nav-btn">BONUS</button>
+        <button id="btn1" onclick="showDay(1)" class="nav-btn nav-active">DAY 1</button>
+        <button id="btn2" onclick="showDay(2)" class="nav-btn">DAY 2</button>
+        <button id="btn3" onclick="showDay(3)" class="nav-btn">DAY 3</button>
+        <button id="btn4" onclick="showDay(4)" class="nav-btn">BONUS DAY</button>
     </div>
 
     <div id="day1" class="day-content day-active">
-        <div class="cat-title">CALENTAMIENTO</div>
+        <div class="cat-title">WARM UP</div>
         <div class="card flex justify-between items-center">
-            <span class="font-bold">Calentamiento General</span>
+            <span class="font-bold">WARM UP</span>
             <button onclick="this.classList.toggle('set-active')" class="bg-slate-700 px-6 py-2 rounded-full font-bold text-xs">LISTO</button>
         </div>
 
         <div class="cat-title">ESPALDA</div>
-        <div class="card"><div class="flex justify-between mb-3"><b>1. Dominadas asistidas 80lbs</b> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 rounded">REST</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><b>2. Dominadas libres</b> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 rounded">REST</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><b>3. Jalón de pecho xlb</b> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 rounded">REST</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
+        <div class="card"><div class="flex justify-between mb-3"><b>1. Dominadas libres o asistidas 80lbs</b> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 rounded">REST</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
+        <div class="card"><div class="flex justify-between mb-3"><b>3. Jalón de pecho 25lb</b> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 rounded">REST</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
         <div class="card"><div class="flex justify-between mb-3"><b>4. Remo con mancuerna 30lb</b> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 rounded">REST</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
 
         <div class="cat-title">BICEP</div>
         <div class="card"><div class="flex justify-between mb-3"><b>1. Curl mancuerna martillo 25lb</b> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 rounded">REST</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
         <div class="card"><div class="flex justify-between mb-3"><b>2. Predicador en banca 15lb</b> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 rounded">REST</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><b>3. Barra en Z (10lb c/lado)</b> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 rounded">REST</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
+        <div class="card"><div class="flex justify-between mb-3"><b>3. Barra en Z de pie (10lb c/lado)</b> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 rounded">REST</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
 
         <div class="cat-title">TRICEP</div>
         <div class="card"><div class="flex justify-between mb-3"><b>1. Extensión en polea 22lb</b> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 rounded">REST</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
@@ -63,24 +62,24 @@
 
     <div id="day2" class="day-content">
         <div class="cat-title">PECHO</div>
-        <div class="card"><b>1. Banco inclinado 25lb</b><div class="flex gap-2 mt-3"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><b>2. Banco plano 30lb</b><div class="flex gap-2 mt-3"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><b>3. Pech fly en banco 20lb</b><div class="flex gap-2 mt-3"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
+        <div class="card"><b>1. Banco inclinado c/ mancuerna 25lb</b><div class="flex gap-2 mt-3"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
+        <div class="card"><b>2. Banco plano c/ mancuerna 30lb</b><div class="flex gap-2 mt-3"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
+        <div class="card"><b>3. Pech fly c/ mancuerna en banco 20lb</b><div class="flex gap-2 mt-3"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
         <div class="cat-title">HOMBRO</div>
         <div class="card"><b>1. Lateral Raises 12lb</b><div class="flex gap-2 mt-3"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><b>2. Militar press Banco 90° 20lb</b><div class="flex gap-2 mt-3"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
+        <div class="card"><b>2. Militar press en banco 90° 20lb</b><div class="flex gap-2 mt-3"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
         <div class="cat-title">ABS (3 SERIES)</div>
-        <div class="card"><b>1. 15 Medium Crunches 10lb</b><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
+        <div class="card"><b>1. 15 Medium Crunches w/ 10lb</b><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
         <div class="card"><b>2. 15 Leg Raises</b><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
         <div class="card"><b>3. 30 Bicycles</b><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><b>4. Ankle Touch</b><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><b>5. Planks</b><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><b>6. Leg cross</b><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
+        <div class="card"><b>4. 30 Ankle Touch</b><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
+        <div class="card"><b>5. 3 Planks</b><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
+        <div class="card"><b>6. 30 Leg cross</b><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
     </div>
 
     <div id="day3" class="day-content">
         <div class="cat-title">LEG DAY</div>
-        <div class="card"><b>1. Sentadilla Smith 15lb/l (CON SEGURO)</b><div class="flex gap-2 mt-3"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
+        <div class="card"><b>1. Sentadilla en Smith 15lb/l CON SEGURO</b><div class="flex gap-2 mt-3"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
         <div class="card"><b>2. Leg extension máquina 115lb</b><div class="flex gap-2 mt-3"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
         <div class="card"><b>3. Prensa 85lb</b><div class="flex gap-2 mt-3"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
         <div class="card"><b>4. Hip thrust en banca 30lb</b><div class="flex gap-2 mt-3"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
@@ -91,7 +90,7 @@
         <div class="cat-title">BICEP</div>
         <div class="card"><b>1. Curl mancuerna martillo 25lb</b><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
         <div class="card"><b>2. Predicador en banca 15lb</b><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><b>3. Barra en Z (10lb c/lado)</b><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
+        <div class="card"><b>3. Barra en Z de pie (10lb c/lado)</b><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
         <div class="cat-title">ABS (3 SERIES)</div>
         <div class="card"><b>1. 15 Medium Crunches 10lb</b><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
         <div class="card"><b>2. 15 Leg Raises</b><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
