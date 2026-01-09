@@ -6,31 +6,32 @@
     <title>WORKOUT PLAN RF 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #0f172a; color: white; font-family: -apple-system, sans-serif; padding-bottom: 50px; }
+        body { background-color: #0f172a; color: white; font-family: -apple-system, sans-serif; padding-bottom: 80px; }
         .card { background: #1e293b; border-radius: 12px; padding: 15px; margin-bottom: 15px; border: 1px solid #334155; }
-        .set-btn { background: #334155; padding: 10px; border-radius: 8px; flex: 1; text-align: center; font-weight: bold; font-size: 12px; border: 1px solid #475569; }
+        .set-btn { background: #334155; padding: 12px; border-radius: 8px; flex: 1; text-align: center; font-weight: bold; font-size: 13px; border: 1px solid #475569; }
         .set-active { background: #10b981 !important; border-color: white; }
         .day-content { display: none; }
         .day-active { display: block; }
-        .nav-btn { background: #1e293b; color: #94a3b8; padding: 8px 15px; border-radius: 20px; font-size: 13px; font-weight: bold; }
+        .nav-btn { background: #1e293b; color: #94a3b8; padding: 10px 18px; border-radius: 20px; font-size: 13px; font-weight: bold; white-space: nowrap; }
         .nav-active { background: #3b82f6; color: white; }
-        .cat-title { color: #60a5fa; font-size: 12px; font-weight: bold; letter-spacing: 2px; margin: 20px 0 10px 0; border-bottom: 1px solid #1e293b; }
-        #restTimer { position: fixed; bottom: 20px; right: 20px; background: #3b82f6; width: 70px; height: 70px; border-radius: 50%; display: none; flex-direction: column; align-items: center; justify-content: center; font-weight: bold; border: 2px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.5); z-index: 100; }
+        .cat-title { color: #60a5fa; font-size: 12px; font-weight: bold; letter-spacing: 2px; margin: 25px 0 10px 0; border-bottom: 1px solid #334155; padding-bottom: 5px; text-transform: uppercase; }
+        #restTimerDisplay { position: fixed; bottom: 20px; right: 20px; background: #3b82f6; width: 80px; height: 80px; border-radius: 50%; display: none; flex-direction: column; align-items: center; justify-content: center; font-weight: bold; border: 3px solid white; box-shadow: 0 5px 20px rgba(0,0,0,0.6); z-index: 999; }
+        .rest-active { display: flex !important; }
     </style>
 </head>
 <body class="p-4">
 
-    <div class="flex justify-between items-start mb-6">
+    <div class="flex justify-between items-center mb-6">
         <div>
-            <h1 class="text-xl font-black text-blue-400 leading-tight">WORKOUT PLAN<br>RF 2026</h1>
-            <p class="text-[10px] text-gray-400 mt-1 uppercase tracking-widest">60kg / 165cm • 120g Proteína</p>
+            <h1 class="text-xl font-black text-blue-400">WORKOUT PLAN RF 2026 BY SS</h1>
+            <p class="text-[10px] text-gray-400 uppercase tracking-widest">60kg / 165cm • 120g Prot</p>
         </div>
-        <button id="sessionBtn" onclick="toggleSession()" class="bg-blue-600 px-4 py-2 rounded-lg font-bold text-xs uppercase tracking-tighter">Check-in</button>
+        <button id="sessionBtn" onclick="toggleSession()" class="bg-blue-600 px-4 py-2 rounded-lg font-bold text-xs uppercase">Check-in</button>
     </div>
 
-    <div id="sessionTimer" class="hidden text-center text-blue-300 font-mono text-xl mb-4">00:00:00</div>
+    <div id="sessionTimer" class="text-center text-blue-300 font-mono text-2xl mb-6 bg-slate-800/50 py-2 rounded-lg hidden">00:00:00</div>
 
-    <div class="flex space-x-2 overflow-x-auto mb-6 pb-2 no-scrollbar">
+    <div class="flex space-x-2 overflow-x-auto mb-6 pb-2">
         <button id="btn1" onclick="showDay(1)" class="nav-btn nav-active">DÍA 1</button>
         <button id="btn2" onclick="showDay(2)" class="nav-btn">DÍA 2</button>
         <button id="btn3" onclick="showDay(3)" class="nav-btn">DÍA 3</button>
@@ -39,28 +40,17 @@
 
     <div id="day1" class="day-content day-active">
         <div class="cat-title">CALENTAMIENTO</div>
-        <div class="card">
-            <p class="font-bold mb-3">Movilidad y Aproximación</p>
-            <div class="flex gap-2">
-                <button onclick="this.classList.toggle('set-active')" class="set-btn">SET 1</button>
-                <button onclick="this.classList.toggle('set-active')" class="set-btn">SET 2</button>
-            </div>
+        <div class="card flex justify-between items-center">
+            <span class="font-bold">Calentamiento General</span>
+            <button onclick="this.classList.toggle('set-active')" class="bg-slate-700 px-6 py-2 rounded-full font-bold text-xs">LISTO</button>
         </div>
 
         <div class="cat-title">ESPALDA</div>
-        <script>
-            const espalda = ["Dominadas asistidas 80lbs", "Dominadas libres", "Jalón de pecho (xlb)", "Remo con mancuerna 30lb"];
-            espalda.forEach(ex => document.write(`
-                <div class="card">
-                    <div class="flex justify-between mb-3"><span class="font-bold text-sm">${ex}</span><button onclick="startTimer()" class="text-[9px] bg-slate-700 px-2 rounded text-blue-300">REST</button></div>
-                    <div class="flex gap-2"><button onclick="this.classList.toggle('set-active')" class="set-btn">S1</button><button onclick="this.classList.toggle('set-active')" class="set-btn">S2</button><button onclick="this.classList.toggle('set-active')" class="set-btn">S3</button></div>
-                </div>`));
-        </script>
+        <div class="card"><div class="flex justify-between mb-3"><b>1. Dominadas asistidas 80lbs</b> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 rounded">REST</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
+        <div class="card"><div class="flex justify-between mb-3"><b>2. Dominadas libres</b> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 rounded">REST</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
+        <div class="card"><div class="flex justify-between mb-3"><b>3. Jalón de pecho xlb</b> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 rounded">REST</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
+        <div class="card"><div class="flex justify-between mb-3"><b>4. Remo con mancuerna 30lb</b> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 rounded">REST</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
 
-        <div class="cat-title">BÍCEP</div>
-        <script>
-            const bicep = ["Curl mancuerna martillo 25lb", "Predicador en banca 15lb", "Barra en Z de pie (10lb c/lado)"];
-            bicep.forEach(ex => document.write(`
-                <div class="card">
-                    <div class="flex justify-between mb-3"><span class="font-bold text-sm">${ex}</span><button onclick="startTimer()" class="text-[9px] bg-slate-700 px-2 rounded text-blue-300">REST</button></div>
-                    <div class="flex gap-2"><button onclick="this.classList.toggle('set-active')" class="set-btn">S1</button><button onclick="this.classList.toggle('set-active')" class="set-btn">S2</
+        <div class="cat-title">BICEP</div>
+        <div class="card"><div class="flex justify-between mb-3"><b>1. Curl mancuerna martillo 25lb</b> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 rounded">REST</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
+        <div class="card"><div class="flex justify-between mb-3"><b>2. Pred
