@@ -2,52 +2,65 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>WORKOUT PLAN RF 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0f172a; color: white; font-family: -apple-system, sans-serif; padding-bottom: 50px; }
+        .card { background: #1e293b; border-radius: 12px; padding: 15px; margin-bottom: 15px; border: 1px solid #334155; }
+        .set-btn { background: #334155; padding: 10px; border-radius: 8px; flex: 1; text-align: center; font-weight: bold; font-size: 12px; border: 1px solid #475569; }
+        .set-active { background: #10b981 !important; border-color: white; }
+        .day-content { display: none; }
+        .day-active { display: block; }
+        .nav-btn { background: #1e293b; color: #94a3b8; padding: 8px 15px; border-radius: 20px; font-size: 13px; font-weight: bold; }
+        .nav-active { background: #3b82f6; color: white; }
+        .cat-title { color: #60a5fa; font-size: 12px; font-weight: bold; letter-spacing: 2px; margin: 20px 0 10px 0; border-bottom: 1px solid #1e293b; }
+        #restTimer { position: fixed; bottom: 20px; right: 20px; background: #3b82f6; width: 70px; height: 70px; border-radius: 50%; display: none; flex-direction: column; align-items: center; justify-content: center; font-weight: bold; border: 2px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.5); z-index: 100; }
+    </style>
 </head>
-<body class="bg-slate-900 text-white p-4">
+<body class="p-4">
 
-    <h1 class="text-xl font-bold text-blue-400">WORKOUT PLAN RF 2026</h1>
-    <p class="text-xs text-gray-400 mb-4 uppercase">Rutina by mi principe</p>
-
-    <div class="flex gap-2 mb-6">
-        <button onclick="changeDay('day1')" class="bg-blue-600 px-4 py-2 rounded">Día 1</button>
-        <button onclick="changeDay('day2')" class="bg-slate-700 px-4 py-2 rounded">Día 2</button>
-        <button onclick="changeDay('day3')" class="bg-slate-700 px-4 py-2 rounded">Día 3</button>
+    <div class="flex justify-between items-start mb-6">
+        <div>
+            <h1 class="text-xl font-black text-blue-400 leading-tight">WORKOUT PLAN<br>RF 2026</h1>
+            <p class="text-[10px] text-gray-400 mt-1 uppercase tracking-widest">60kg / 165cm • 120g Proteína</p>
+        </div>
+        <button id="sessionBtn" onclick="toggleSession()" class="bg-blue-600 px-4 py-2 rounded-lg font-bold text-xs uppercase tracking-tighter">Check-in</button>
     </div>
 
-    <div id="content">
-        <p class="text-yellow-500">Cargando ejercicios...</p>
+    <div id="sessionTimer" class="hidden text-center text-blue-300 font-mono text-xl mb-4">00:00:00</div>
+
+    <div class="flex space-x-2 overflow-x-auto mb-6 pb-2 no-scrollbar">
+        <button id="btn1" onclick="showDay(1)" class="nav-btn nav-active">DÍA 1</button>
+        <button id="btn2" onclick="showDay(2)" class="nav-btn">DÍA 2</button>
+        <button id="btn3" onclick="showDay(3)" class="nav-btn">DÍA 3</button>
+        <button id="btn4" onclick="showDay(4)" class="nav-btn">BONUS</button>
     </div>
 
-    <script>
-        const data = {
-            day1: ["WARM UP: Movilidad", "ESPALDA: Dominadas", "ESPALDA: Jalón Pecho", "ESPALDA: Remo Mancuerna", "BICEP: Martillo", "BICEP: Predicador"],
-            day2: ["WARM UP: Movilidad", "PECHO: Inclinado", "PECHO: Plano", "HOMBRO: Laterales", "ABS: Crunches"],
-            day3: ["WARM UP: Movilidad", "LEG: Sentadilla Smith", "LEG: Prensa", "LEG: Extensión", "LEG: Hip Thrust"]
-        };
+    <div id="day1" class="day-content day-active">
+        <div class="cat-title">CALENTAMIENTO</div>
+        <div class="card">
+            <p class="font-bold mb-3">Movilidad y Aproximación</p>
+            <div class="flex gap-2">
+                <button onclick="this.classList.toggle('set-active')" class="set-btn">SET 1</button>
+                <button onclick="this.classList.toggle('set-active')" class="set-btn">SET 2</button>
+            </div>
+        </div>
 
-        function changeDay(day) {
-            const container = document.getElementById('content');
-            let html = `<h2 class="text-lg font-bold mb-4 uppercase text-blue-300 underline">${day}</h2>`;
-            
-            data[day].forEach(ex => {
-                html += `
-                    <div class="bg-slate-800 p-4 rounded-lg mb-2 border border-slate-700">
-                        <p class="font-bold">${ex}</p>
-                        <div class="flex gap-2 mt-2">
-                            <button onclick="this.classList.toggle('bg-green-600')" class="bg-slate-600 px-3 py-1 rounded text-xs">SET 1</button>
-                            <button onclick="this.classList.toggle('bg-green-600')" class="bg-slate-600 px-3 py-1 rounded text-xs">SET 2</button>
-                            <button onclick="this.classList.toggle('bg-green-600')" class="bg-slate-600 px-3 py-1 rounded text-xs">SET 3</button>
-                        </div>
-                    </div>`;
-            });
-            container.innerHTML = html;
-        }
+        <div class="cat-title">ESPALDA</div>
+        <script>
+            const espalda = ["Dominadas asistidas 80lbs", "Dominadas libres", "Jalón de pecho (xlb)", "Remo con mancuerna 30lb"];
+            espalda.forEach(ex => document.write(`
+                <div class="card">
+                    <div class="flex justify-between mb-3"><span class="font-bold text-sm">${ex}</span><button onclick="startTimer()" class="text-[9px] bg-slate-700 px-2 rounded text-blue-300">REST</button></div>
+                    <div class="flex gap-2"><button onclick="this.classList.toggle('set-active')" class="set-btn">S1</button><button onclick="this.classList.toggle('set-active')" class="set-btn">S2</button><button onclick="this.classList.toggle('set-active')" class="set-btn">S3</button></div>
+                </div>`));
+        </script>
 
-        // Cargar dia 1 al iniciar
-        changeDay('day1');
-    </script>
-</body>
-</html>
+        <div class="cat-title">BÍCEP</div>
+        <script>
+            const bicep = ["Curl mancuerna martillo 25lb", "Predicador en banca 15lb", "Barra en Z de pie (10lb c/lado)"];
+            bicep.forEach(ex => document.write(`
+                <div class="card">
+                    <div class="flex justify-between mb-3"><span class="font-bold text-sm">${ex}</span><button onclick="startTimer()" class="text-[9px] bg-slate-700 px-2 rounded text-blue-300">REST</button></div>
+                    <div class="flex gap-2"><button onclick="this.classList.toggle('set-active')" class="set-btn">S1</button><button onclick="this.classList.toggle('set-active')" class="set-btn">S2</
