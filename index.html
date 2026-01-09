@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORKOUT PLAN RF 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-white p-4">
+
+    <h1 class="text-xl font-bold text-blue-400">WORKOUT PLAN RF 2026</h1>
+    <p class="text-xs text-gray-400 mb-4 uppercase">Rutina by mi principe</p>
+
+    <div class="flex gap-2 mb-6">
+        <button onclick="changeDay('day1')" class="bg-blue-600 px-4 py-2 rounded">Día 1</button>
+        <button onclick="changeDay('day2')" class="bg-slate-700 px-4 py-2 rounded">Día 2</button>
+        <button onclick="changeDay('day3')" class="bg-slate-700 px-4 py-2 rounded">Día 3</button>
+    </div>
+
+    <div id="content">
+        <p class="text-yellow-500">Cargando ejercicios...</p>
+    </div>
+
+    <script>
+        const data = {
+            day1: ["WARM UP: Movilidad", "ESPALDA: Dominadas", "ESPALDA: Jalón Pecho", "ESPALDA: Remo Mancuerna", "BICEP: Martillo", "BICEP: Predicador"],
+            day2: ["WARM UP: Movilidad", "PECHO: Inclinado", "PECHO: Plano", "HOMBRO: Laterales", "ABS: Crunches"],
+            day3: ["WARM UP: Movilidad", "LEG: Sentadilla Smith", "LEG: Prensa", "LEG: Extensión", "LEG: Hip Thrust"]
+        };
+
+        function changeDay(day) {
+            const container = document.getElementById('content');
+            let html = `<h2 class="text-lg font-bold mb-4 uppercase text-blue-300 underline">${day}</h2>`;
+            
+            data[day].forEach(ex => {
+                html += `
+                    <div class="bg-slate-800 p-4 rounded-lg mb-2 border border-slate-700">
+                        <p class="font-bold">${ex}</p>
+                        <div class="flex gap-2 mt-2">
+                            <button onclick="this.classList.toggle('bg-green-600')" class="bg-slate-600 px-3 py-1 rounded text-xs">SET 1</button>
+                            <button onclick="this.classList.toggle('bg-green-600')" class="bg-slate-600 px-3 py-1 rounded text-xs">SET 2</button>
+                            <button onclick="this.classList.toggle('bg-green-600')" class="bg-slate-600 px-3 py-1 rounded text-xs">SET 3</button>
+                        </div>
+                    </div>`;
+            });
+            container.innerHTML = html;
+        }
+
+        // Cargar dia 1 al iniciar
+        changeDay('day1');
+    </script>
+</body>
+</html>
