@@ -12,7 +12,7 @@
         .set-active { background: #10b981 !important; border-color: white; }
         .day-content { display: none; }
         .day-active { display: block; }
-        .nav-btn { background: #1e293b; color: #94a3b8; padding: 10px 18px; border-radius: 20px; font-size: 13px; font-weight: bold; white-space: nowrap; }
+        .nav-btn { background: #1e293b; color: #94a3b8; padding: 10px 18px; border-radius: 20px; font-size: 12px; font-weight: bold; white-space: nowrap; }
         .nav-active { background: #3b82f6; color: white; }
         .cat-title { color: #60a5fa; font-size: 12px; font-weight: bold; letter-spacing: 2px; margin: 25px 0 10px 0; border-bottom: 1px solid #334155; padding-bottom: 5px; text-transform: uppercase; }
         #restTimerDisplay { position: fixed; bottom: 20px; right: 20px; background: #3b82f6; width: 80px; height: 80px; border-radius: 50%; display: none; flex-direction: column; align-items: center; justify-content: center; font-weight: bold; border: 3px solid white; box-shadow: 0 5px 20px rgba(0,0,0,0.6); z-index: 999; }
@@ -24,8 +24,8 @@
 
     <div class="flex justify-between items-center mb-6">
         <div>
-            <h1 class="text-xl font-black text-blue-400">WORKOUT PLAN RF 2026 BY SS</h1>
-            <p class="text-[10px] text-gray-400 uppercase tracking-widest">GENERALES: 60kg / 165cm • 120g Prot</p>
+            <h1 class="text-xl font-black text-blue-400">WORKOUT PLAN RF 2026</h1>
+            <p class="text-[10px] text-gray-400 uppercase tracking-widest">AUTO CHECK-IN ACTIVO</p>
         </div>
         <button id="sessionBtn" onclick="toggleSession()" class="bg-blue-600 px-4 py-2 rounded-lg font-bold text-xs uppercase">Check-in</button>
     </div>
@@ -33,85 +33,106 @@
     <div id="sessionTimer" class="text-center text-blue-300 font-mono text-2xl mb-6 bg-slate-800/50 py-2 rounded-lg hidden">00:00:00</div>
 
     <div class="flex space-x-2 overflow-x-auto mb-6 pb-2">
-        <button id="btn1" onclick="showDay(1)" class="nav-btn nav-active">DAY 1</button>
-        <button id="btn2" onclick="showDay(2)" class="nav-btn">DAY 2</button>
-        <button id="btn3" onclick="showDay(3)" class="nav-btn">DAY 3</button>
-        <button id="btn4" onclick="showDay(4)" class="nav-btn">BONUS DAY</button>
+        <button id="btn1" onclick="showDay(1)" class="nav-btn nav-active">D1: PIERNA</button>
+        <button id="btn2" onclick="showDay(2)" class="nav-btn">D2: H/E/A</button>
+        <button id="btn3" onclick="showDay(3)" class="nav-btn">D3: P/B/T</button>
+        <button id="btn4" onclick="showDay(4)" class="nav-btn">D4: PIERNA</button>
+        <button id="btn5" onclick="showDay(5)" class="nav-btn">D5: H/E/A</button>
+        <button id="btn6" onclick="showDay(6)" class="nav-btn">D6: P/B/T</button>
+        <button id="btn7" onclick="showDay(7)" class="nav-btn">D7: RELAX</button>
     </div>
 
-    <div id="day1" class="day-content day-active">
+    <template id="pierna-template">
         <div class="cat-title">WARM UP</div>
-        <div class="card flex justify-between items-center"><span class="font-bold">WARM UP</span><button onclick="this.classList.toggle('set-active')" class="bg-slate-700 px-6 py-2 rounded-full font-bold text-xs">LISTO</button></div>
-        <div class="cat-title">ESPALDA</div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">1. Dominadas libres o asistidas</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">2. Dominadas libres</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">3. Jalón de pecho</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">4. Remo con mancuerna</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="cat-title">BICEP</div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">1. Curl mancuerna martillo</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">2. Predicador en banca</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">3. Barra en Z de pie</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="cat-title">TRICEP</div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">1. Extensión en polea</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">2. Press francés polea</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div> <button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-    </div>
+        <div class="card flex justify-between items-center"><span class="font-bold uppercase">Calentamiento Articular</span><button onclick="handleAction(this)" class="bg-slate-700 px-6 py-2 rounded-full font-bold text-xs">LISTO</button></div>
+        <div class="cat-title">PIERNA</div>
+        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">1. Sentadilla Smith</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="handleAction(this, true)" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">2m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="handleAction(this)">S1</div><div class="set-btn" onclick="handleAction(this)">S2</div><div class="set-btn" onclick="handleAction(this)">S3</div></div></div>
+        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">2. Prensa</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="handleAction(this, true)" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">2m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="handleAction(this)">S1</div><div class="set-btn" onclick="handleAction(this)">S2</div><div class="set-btn" onclick="handleAction(this)">S3</div></div></div>
+        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">3. Leg Extension</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="handleAction(this, true)" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">2m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="handleAction(this)">S1</div><div class="set-btn" onclick="handleAction(this)">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
+        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">4. Desplante Mancuerna</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="handleAction(this, true)" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">2m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="handleAction(this)">S1</div><div class="set-btn" onclick="handleAction(this)">S2</div><div class="set-btn" onclick="handleAction(this)">S3</div></div></div>
+        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">5. Hip Thrust</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="handleAction(this, true)" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">2m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="handleAction(this)">S1</div><div class="set-btn" onclick="handleAction(this)">S2</div><div class="set-btn" onclick="handleAction(this)">S3</div></div></div>
+    </template>
 
-    <div id="day2" class="day-content">
+    <template id="hea-template">
         <div class="cat-title">WARM UP</div>
-        <div class="card flex justify-between items-center"><span class="font-bold">WARM UP</span><button onclick="this.classList.toggle('set-active')" class="bg-slate-700 px-6 py-2 rounded-full font-bold text-xs">LISTO</button></div>
+        <div class="card flex justify-between items-center"><span class="font-bold">MOVILIDAD</span><button onclick="handleAction(this)" class="bg-slate-700 px-6 py-2 rounded-full font-bold text-xs">LISTO</button></div>
+        <div class="cat-title">ESPALDA & HOMBRO</div>
+        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">1. Dominadas</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="handleAction(this, true)" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">2m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="handleAction(this)">S1</div><div class="set-btn" onclick="handleAction(this)">S2</div><div class="set-btn" onclick="handleAction(this)">S3</div></div></div>
+        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">2. Jalón al Pecho</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="handleAction(this, true)" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">2m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="handleAction(this)">S1</div><div class="set-btn" onclick="handleAction(this)">S2</div><div class="set-btn" onclick="handleAction(this)">S3</div></div></div>
+        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">3. Remo Mancuerna</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="handleAction(this, true)" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">2m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="handleAction(this)">S1</div><div class="set-btn" onclick="handleAction(this)">S2</div><div class="set-btn" onclick="handleAction(this)">S3</div></div></div>
+        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">4. Militar Press 90°</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="handleAction(this, true)" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">2m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="handleAction(this)">S1</div><div class="set-btn" onclick="handleAction(this)">S2</div><div class="set-btn" onclick="handleAction(this)">S3</div></div></div>
+        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">5. Laterales</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="handleAction(this, true)" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">2m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="handleAction(this)">S1</div><div class="set-btn" onclick="handleAction(this)">S2</div><div class="set-btn" onclick="handleAction(this)">S3</div></div></div>
+        <div class="cat-title">ABS</div>
+        <div id="abs-container"></div>
+    </template>
+
+    <template id="pbt-template">
+        <div class="cat-title">WARM UP</div>
+        <div class="card flex justify-between items-center"><span class="font-bold">WARM UP</span><button onclick="handleAction(this)" class="bg-slate-700 px-6 py-2 rounded-full font-bold text-xs">LISTO</button></div>
         <div class="cat-title">PECHO</div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">1. Banco inclinado mancuerna</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">2. Banco plano mancuerna</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">3. Pech fly en banco</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="cat-title">HOMBRO</div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">1. Lateral Raises</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">2. Militar press en banco 90°</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="cat-title">ABS</div>
-        <div class="card"><div class="flex justify-between mb-3"><b class="ex-name">1. 15 Medium Crunches</b><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><b class="ex-name">2. 15 Leg Raises</b><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><b class="ex-name">3. 30 Bicycles</b><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><b class="ex-name">4. Ankle Touch</b><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><b class="ex-name">5. Planks</b><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><b class="ex-name">6. Leg cross</b><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-    </div>
+        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">1. Banco Inclinado</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="handleAction(this, true)" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">2m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="handleAction(this)">S1</div><div class="set-btn" onclick="handleAction(this)">S2</div><div class="set-btn" onclick="handleAction(this)">S3</div></div></div>
+        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">2. Banco Plano</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="handleAction(this, true)" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">2m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="handleAction(this)">S1</div><div class="set-btn" onclick="handleAction(this)">S2</div><div class="set-btn" onclick="handleAction(this)">S3</div></div></div>
+        <div class="cat-title">BRAZOS</div>
+        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">3. Curl Martillo</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="handleAction(this, true)" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">2m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="handleAction(this)">S1</div><div class="set-btn" onclick="handleAction(this)">S2</div><div class="set-btn" onclick="handleAction(this)">S3</div></div></div>
+        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">4. Barra Z</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="handleAction(this, true)" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">2m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="handleAction(this)">S1</div><div class="set-btn" onclick="handleAction(this)">S2</div><div class="set-btn" onclick="handleAction(this)">S3</div></div></div>
+        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">5. Extensión Polea</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="handleAction(this, true)" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">2m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="handleAction(this)">S1</div><div class="set-btn" onclick="handleAction(this)">S2</div><div class="set-btn" onclick="handleAction(this)">S3</div></div></div>
+    </template>
 
-    <div id="day3" class="day-content">
-        <div class="cat-title">WARM UP</div>
-        <div class="card flex justify-between items-center"><span class="font-bold">WARM UP</span><button onclick="this.classList.toggle('set-active')" class="bg-slate-700 px-6 py-2 rounded-full font-bold text-xs">LISTO</button></div>
-        <div class="cat-title">LEG DAY</div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">1. Sentadilla en Smith</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">2. Leg extension máquina</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">3. Prensa</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">4. Hip thrust en banca</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">5. Desplante con mancuerna</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-    </div>
-
-    <div id="day4" class="day-content">
-        <div class="cat-title">WARM UP</div>
-        <div class="card flex justify-between items-center"><span class="font-bold">WARM UP</span><button onclick="this.classList.toggle('set-active')" class="bg-slate-700 px-6 py-2 rounded-full font-bold text-xs">LISTO</button></div>
-        <div class="cat-title">BICEP</div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">1. Curl mancuerna martillo</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">2. Predicador en banca</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><div><b class="ex-name">3. Barra en Z de pie</b><br><span class="text-[10px] text-gray-400">PESO: <input type="text" class="weight-input" placeholder="LBS"></span></div><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="cat-title">ABS</div>
-        <div class="card"><div class="flex justify-between mb-3"><b class="ex-name">1. 15 Medium Crunches</b><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><b class="ex-name">2. 15 Leg Raises</b><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><b class="ex-name">3. 30 Bicycles</b><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><b class="ex-name">4. Ankle Touch</b><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><b class="ex-name">5. Planks</b><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
-        <div class="card"><div class="flex justify-between mb-3"><b class="ex-name">6. Leg cross</b><button onclick="startTimer()" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">1m Rest</button></div><div class="flex gap-2 mt-2"><div class="set-btn" onclick="this.classList.toggle('set-active')">S1</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S2</div><div class="set-btn" onclick="this.classList.toggle('set-active')">S3</div></div></div>
+    <div id="day1" class="day-content day-active"></div>
+    <div id="day2" class="day-content"></div>
+    <div id="day3" class="day-content"></div>
+    <div id="day4" class="day-content"></div>
+    <div id="day5" class="day-content"></div>
+    <div id="day6" class="day-content"></div>
+    <div id="day7" class="day-content">
+        <div class="flex flex-col items-center justify-center h-64 opacity-50">
+            <span class="text-4xl mb-4">🏠</span>
+            <p class="font-bold">DÍA DE DESCANSO</p>
+            <p class="text-xs">Recupera y come bien.</p>
+        </div>
     </div>
 
     <div id="restTimerDisplay" onclick="this.classList.remove('rest-active')">
-        <span class="text-[10px]">REST</span>
-        <span id="tDisplay" class="text-xl">01:00</span>
+        <span class="text-[10px]">REPOSO</span>
+        <span id="tDisplay" class="text-xl">02:00</span>
     </div>
 
-    <footer class="mt-8 text-center text-gray-500 italic text-sm">
-        RUTINA BY MI PRINCIPE
-    </footer>
+    <footer class="mt-8 text-center text-gray-500 italic text-xs">WORKOUT PLAN 2026</footer>
 
     <script>
+        const absExercises = [
+            "15 Medium Crunches", "15 Leg Raises", "30 Bicycles", 
+            "Ankle Touch", "Planks", "Leg Cross"
+        ];
+
+        function buildAbs() {
+            return absExercises.map((ex, i) => `
+                <div class="card">
+                    <div class="flex justify-between mb-3">
+                        <b class="ex-name">${i+1}. ${ex}</b>
+                        <button onclick="handleAction(this, true)" class="text-[10px] bg-blue-900 px-2 h-6 rounded uppercase">2m Rest</button>
+                    </div>
+                    <div class="flex gap-2">
+                        <div class="set-btn" onclick="handleAction(this)">S1</div>
+                        <div class="set-btn" onclick="handleAction(this)">S2</div>
+                        <div class="set-btn" onclick="handleAction(this)">S3</div>
+                    </div>
+                </div>`).join('');
+        }
+
+        function initApp() {
+            document.getElementById('day1').innerHTML = document.getElementById('pierna-template').innerHTML;
+            document.getElementById('day4').innerHTML = document.getElementById('pierna-template').innerHTML;
+            
+            const heaContent = document.getElementById('hea-template').innerHTML;
+            document.getElementById('day2').innerHTML = heaContent;
+            document.getElementById('day5').innerHTML = heaContent;
+            document.querySelectorAll('#abs-container').forEach(c => c.innerHTML = buildAbs());
+
+            document.getElementById('day3').innerHTML = document.getElementById('pbt-template').innerHTML;
+            document.getElementById('day6').innerHTML = document.getElementById('pbt-template').innerHTML;
+        }
+
         function showDay(n) {
             document.querySelectorAll('.day-content').forEach(d => d.classList.remove('day-active'));
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('nav-active'));
@@ -120,11 +141,27 @@
             window.scrollTo(0,0);
         }
 
-        let sTime, sInt;
+        let sTime, sInt, sessionActive = false;
+
+        function handleAction(el, isTimer = false) {
+            // Auto Check-in si no está activo
+            if(!sessionActive) {
+                const btn = document.getElementById('sessionBtn');
+                if(btn.innerText === "CHECK-IN") toggleSession();
+            }
+
+            // Marcar botón
+            el.classList.toggle('set-active');
+
+            // Si es timer, lanzarlo
+            if(isTimer) startTimer();
+        }
+
         function toggleSession() {
             const btn = document.getElementById('sessionBtn');
             const timer = document.getElementById('sessionTimer');
             if(btn.innerText === "CHECK-IN") {
+                sessionActive = true;
                 sTime = new Date();
                 btn.innerText = "CHECK-OUT";
                 btn.classList.replace('bg-blue-600', 'bg-red-600');
@@ -135,36 +172,38 @@
                 }, 1000);
             } else {
                 clearInterval(sInt);
-                let summary = "RESUMEN DE PESOS UTILIZADOS:\n\n";
-                const cards = document.querySelectorAll('.day-active .card');
-                cards.forEach(card => {
-                    const nameEl = card.querySelector('.ex-name');
-                    const input = card.querySelector('.weight-input');
-                    if(nameEl && input && input.value.trim() !== "") {
-                        summary += `${nameEl.innerText.split('.')[1] || nameEl.innerText}: ${input.value} lbs\n`;
+                let summary = "RESUMEN DE PESOS:\n\n";
+                document.querySelectorAll('.day-active .card').forEach(card => {
+                    const name = card.querySelector('.ex-name');
+                    const weight = card.querySelector('.weight-input');
+                    if(name && weight && weight.value.trim() !== "") {
+                        summary += `${name.innerText}: ${weight.value} lbs\n`;
                     }
                 });
-                alert(summary === "RESUMEN DE PESOS UTILIZADOS:\n\n" ? "Sesión terminada sin pesos anotados." : summary);
+                alert(summary === "RESUMEN DE PESOS:\n\n" ? "Sesión terminada." : summary);
                 location.reload();
             }
         }
 
         function startTimer() {
-            let t = 60;
+            let t = 120; // 2 minutos
             const display = document.getElementById('restTimerDisplay');
             const text = document.getElementById('tDisplay');
             display.classList.add('rest-active');
-            text.innerText = "01:00";
-            let interval = setInterval(() => {
+            
+            clearInterval(window.timerInt);
+            window.timerInt = setInterval(() => {
                 t--;
                 let m = Math.floor(t/60), s = t%60;
-                text.innerText = `0${m}:${s<10?'0':''}${s}`;
+                text.innerText = `${m}:${s<10?'0':''}${s}`;
                 if(t<=0) {
-                    clearInterval(interval);
-                    text.innerText = "FIN";
+                    clearInterval(window.timerInt);
+                    text.innerText = "LISTO";
                 }
             }, 1000);
         }
+
+        initApp();
     </script>
 </body>
 </html>
